@@ -1,0 +1,447 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- SEO: Descriptive title for search engines -->
+    <title>Shaila Wazeer — CS Student · Web Developer · AI Automation</title>
+    <meta
+      name="description"
+      content="Portfolio of Shaila Wazeer, a Computer Science student at Karachi University building skills in JavaScript, web development, and AI automation."
+    />
+
+    <!-- Google Fonts — Inter (body) + JetBrains Mono (code/labels) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Our stylesheet -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- ====================================================================
+       NAVIGATION
+       Fixed top bar with logo, links, and a mobile hamburger toggle.
+       ==================================================================== -->
+    <nav class="nav" role="navigation" aria-label="Main navigation">
+      <div class="nav-inner">
+        <a href="#" class="nav-logo">shaila<span class="dot">.</span>wazeer</a>
+
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#journey">Journey</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- ====================================================================
+       HERO SECTION
+       Full-viewport intro with animated canvas background.
+       ==================================================================== -->
+    <header class="hero" id="hero">
+      <!-- Network-nodes canvas (drawn by script.js) -->
+      <canvas id="heroCanvas"></canvas>
+
+      <div class="container hero-content">
+        <p class="hero-eyebrow">CS Student · Karachi, Pakistan</p>
+
+        <h1>Hi, I'm <span class="highlight">Shaila Wazeer</span></h1>
+
+        <p class="hero-tagline">
+          CS Student &nbsp;|&nbsp; Learning JS &amp; Web Development
+          &nbsp;|&nbsp; Exploring AI Automation
+        </p>
+
+        <p class="hero-intro">
+          Building real projects instead of just following tutorials — and
+          documenting every step of the process.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#projects" class="btn btn-primary">View Projects →</a>
+          <a href="#contact" class="btn btn-outline">Get in Touch</a>
+        </div>
+      </div>
+
+      <div class="scroll-indicator">
+        <span class="bar"></span>
+        SCROLL
+      </div>
+    </header>
+
+    <!-- ====================================================================
+       ABOUT SECTION
+       Bio text + highlight cards for community involvement.
+       ==================================================================== -->
+    <hr class="divider" />
+
+    <section id="about" class="section">
+      <div class="container">
+        <p class="section-label">01 — About</p>
+        <h2 class="section-title fade-in">
+          A student who builds, not just studies
+        </h2>
+
+        <div class="about-grid">
+          <!-- Left: Bio paragraphs -->
+          <div class="about-text fade-in">
+            <p>
+              <strong>I'm a third-year Computer Science student</strong> at the
+              University of Karachi. Right now I'm deep in JavaScript and web
+              development fundamentals — building things from scratch, breaking
+              them, and figuring out why.
+            </p>
+            <p>
+              Beyond code, I'm exploring
+              <strong>AI automation tools</strong> like n8n and Zapier to
+              understand how workflows can be streamlined without writing
+              everything from the ground up. I'm also learning
+              <strong>UI/UX design in Figma</strong>
+              because I believe developers who understand design build better
+              products.
+            </p>
+            <p>
+              My approach is simple:
+              <strong>learn by building real projects</strong>, document the
+              process, share what I learn, and stay active in the developer
+              community. I'd rather have three rough projects I actually made
+              than thirty certificates from tutorials I passively watched.
+            </p>
+          </div>
+
+          <!-- Right: Highlight cards -->
+          <div class="about-highlights fade-in">
+            <div class="highlight-card">
+              <div class="icon">🚀</div>
+              <h4>GDG DevFest &amp; Rapid Prototyping</h4>
+              <p>
+                Active participant at Google Developer Group events. Attended a
+                rapid-prototyping session on building MVPs with Gemini —
+                learning to ship fast and iterate.
+              </p>
+            </div>
+
+            <div class="highlight-card">
+              <div class="icon">🤝</div>
+              <h4>HR 4.0 Volunteer</h4>
+              <p>
+                Volunteered at "HR 4.0: Nurturing Talent with Technology,"
+                gaining firsthand experience in how tech intersects with
+                professional development.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+       SKILLS SECTION
+       Grouped skill tags inside bordered cards.
+       ==================================================================== -->
+    <hr class="divider" />
+
+    <section id="skills" class="section">
+      <div class="container">
+        <p class="section-label">02 — Skills</p>
+        <h2 class="section-title fade-in">What I work with</h2>
+
+        <div class="skills-grid fade-in">
+          <!-- Languages -->
+          <div class="skill-group">
+            <p class="skill-group-label">Languages</p>
+            <div class="skill-tags">
+              <span class="skill-tag">JavaScript</span>
+              <span class="skill-tag">Java</span>
+              <span class="skill-tag">HTML</span>
+              <span class="skill-tag">CSS</span>
+            </div>
+          </div>
+
+          <!-- Tools -->
+          <div class="skill-group">
+            <p class="skill-group-label">Tools</p>
+            <div class="skill-tags">
+              <span class="skill-tag">Git / GitHub</span>
+              <span class="skill-tag">Figma</span>
+              <span class="skill-tag">VS Code</span>
+            </div>
+          </div>
+
+          <!-- Currently Learning -->
+          <div class="skill-group">
+            <p class="skill-group-label">Currently Learning</p>
+            <div class="skill-tags">
+              <span class="skill-tag learning">n8n</span>
+              <span class="skill-tag learning">Zapier</span>
+              <span class="skill-tag learning">DSA</span>
+            </div>
+          </div>
+
+          <!-- Design -->
+          <div class="skill-group">
+            <p class="skill-group-label">Design</p>
+            <div class="skill-tags">
+              <span class="skill-tag">UI/UX Fundamentals</span>
+              <span class="skill-tag">Wireframing</span>
+              <span class="skill-tag">Prototyping</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+       PROJECTS SECTION
+       Three project cards (last one is a placeholder).
+       ==================================================================== -->
+    <hr class="divider" />
+
+    <section id="projects" class="section">
+      <div class="container">
+        <p class="section-label">03 — Projects</p>
+        <h2 class="section-title fade-in">Things I've built</h2>
+
+        <div class="projects-grid">
+          <!-- Project 1: GPS Path Planner -->
+          <div class="project-card fade-in">
+            <p class="project-number">01</p>
+            <h3 class="project-title">GPS Path Planner</h3>
+            <p class="project-desc">
+              A Java application that implements pathfinding algorithms
+              (Dijkstra's, A*) to find the fastest route through simulated city
+              traffic. Inspired by how real GPS navigation actually works under
+              the hood.
+            </p>
+            <div class="project-tech">
+              <span>Java</span>
+              <span>Dijkstra's</span>
+              <span>A*</span>
+              <span>OOP</span>
+            </div>
+            <a
+              href="https://github.com/shailawazeer/GPS-Path_Planner.git"
+              class="project-link"
+              target="_blank"
+              rel="noopener"
+            >
+              View Code <span class="arrow">→</span>
+            </a>
+          </div>
+
+          <!-- Project 2: This Portfolio -->
+          <div class="project-card fade-in">
+            <p class="project-number">02</p>
+            <h3 class="project-title">Portfolio Website</h3>
+            <p class="project-desc">
+              This site — built from scratch with plain HTML, CSS, and
+              JavaScript. No frameworks, no templates. Designed to be readable,
+              editable, and a living showcase of what I'm learning.
+            </p>
+            <div class="project-tech">
+              <span>HTML</span>
+              <span>CSS</span>
+              <span>JavaScript</span>
+              <span>Canvas API</span>
+            </div>
+            <a
+              href="https://github.com/shaila-wazeer"
+              class="project-link"
+              target="_blank"
+              rel="noopener"
+            >
+              View Code <span class="arrow">→</span>
+            </a>
+          </div>
+
+          <!-- Project 3: Placeholder -->
+          <div class="project-card placeholder fade-in">
+            <p class="project-number">03</p>
+            <h3 class="project-title">Automation Project</h3>
+            <p class="project-desc">
+              Coming soon — currently building workflow automations with n8n and
+              Zapier. This card will be updated once the project is ready to
+              share.
+            </p>
+            <div class="project-tech">
+              <span>n8n</span>
+              <span>Zapier</span>
+              <span>API Integration</span>
+            </div>
+            <span
+              class="project-link"
+              style="color: var(--text-secondary); cursor: default"
+            >
+              In Progress ⏳
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+       LEARNING JOURNEY SECTION
+       Timeline-style list of what I'm currently learning / doing.
+       ==================================================================== -->
+    <hr class="divider" />
+
+    <section id="journey" class="section">
+      <div class="container">
+        <p class="section-label">04 — Learning Journey</p>
+        <h2 class="section-title fade-in">Where I am right now</h2>
+
+        <!-- <div class="journey-list fade-in">
+          <div class="journey-item">
+            <h4>📖 Reading: Grokking Algorithms</h4>
+            <p>
+              Working through the book chapter by chapter — understanding
+              algorithms visually before implementing them in code.
+            </p>
+            <span class="tag">In Progress</span>
+          </div>
+
+          <div class="journey-item">
+            <h4>🧩 Practicing DSA</h4>
+            <p>
+              Solving data structures &amp; algorithms problems regularly. Focus
+              areas: arrays, linked lists, stacks, and graph traversal.
+            </p>
+            <span class="tag">Ongoing</span>
+          </div> -->
+
+          <div class="journey-item">
+            <h4>⚡ Learning Workflow Automation</h4>
+            <p>
+              Exploring n8n and Zapier to build automated workflows — connecting
+              APIs, scheduling tasks, and reducing manual work.
+            </p>
+            <span class="tag">Exploring</span>
+          </div>
+
+          <div class="journey-item">
+            <h4>🛠️ Building Small JS Apps</h4>
+            <p>
+              To-do app, weather app, form validator — small projects to
+              solidify fundamentals.
+            </p>
+            <span class="tag">Building</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+       CONTACT SECTION
+       Simple form + direct links (email, LinkedIn, GitHub).
+       ==================================================================== -->
+    <hr class="divider" />
+
+    <section id="contact" class="section">
+      <div class="container">
+        <div class="contact-box fade-in">
+          <h2>Let's connect</h2>
+          <p class="subtitle">
+            Whether it's a project idea, a freelance opportunity, or just a
+            question — I'd love to hear from you.
+          </p>
+          <p class="open-to">
+            Open to freelance projects in web development and automation
+          </p>
+
+          <!-- Contact Form (front-end validation only — see script.js) -->
+          <form id="contactForm" class="contact-form" novalidate>
+            <div class="form-group">
+              <label for="formName">Your Name</label>
+              <input
+                type="text"
+                id="formName"
+                name="name"
+                placeholder="Jane Doe"
+                autocomplete="name"
+              />
+              <p class="error-msg" id="nameError"></p>
+            </div>
+
+            <div class="form-group">
+              <label for="formEmail">Email</label>
+              <input
+                type="email"
+                id="formEmail"
+                name="email"
+                placeholder="jane@example.com"
+                autocomplete="email"
+              />
+              <p class="error-msg" id="emailError"></p>
+            </div>
+
+            <div class="form-group">
+              <label for="formMessage">Message</label>
+              <textarea
+                id="formMessage"
+                name="message"
+                placeholder="What's on your mind?"
+              ></textarea>
+              <p class="error-msg" id="messageError"></p>
+            </div>
+
+            <button
+              type="submit"
+              class="btn btn-primary"
+              style="align-self: flex-start"
+            >
+              Send Message →
+            </button>
+          </form>
+
+          <!-- Direct contact links -->
+          <div class="contact-links">
+            <a href="mailto:sshailafeb@gmail.com" class="contact-link-item">
+              ✉ sshailafeb@gmail.com
+            </a>
+            <a
+              href="https://www.linkedin.com/in/shaila-wazeer"
+              target="_blank"
+              rel="noopener"
+              class="contact-link-item"
+            >
+              LinkedIn
+            </a>
+            <a
+              href="https://github.com/shailawazeer"
+              target="_blank"
+              rel="noopener"
+              class="contact-link-item"
+            >
+              GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+       FOOTER
+       ==================================================================== -->
+    <footer class="footer">
+      <div class="container">
+        Built from scratch by <span class="accent">Shaila Wazeer</span> · 2026
+      </div>
+    </footer>
+
+    <!-- Our script — loaded at the end so the DOM is ready -->
+    <script src="script.js"></script>
+  </body>
+</html>

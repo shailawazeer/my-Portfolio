@@ -1,0 +1,899 @@
+/* ==========================================================================
+   STYLE.CSS — Shaila Wazeer Portfolio
+   
+   TABLE OF CONTENTS:
+   1. CSS Variables (colors, fonts, spacing)
+   2. Reset & Base Styles
+   3. Utility Classes
+   4. Navigation
+   5. Hero Section
+   6. About Section
+   7. Skills Section
+   8. Projects Section
+   9. Learning Journey Section
+   10. Contact Section
+   11. Footer
+   12. Animations
+   13. Responsive (Tablet)
+   14. Responsive (Mobile)
+   ========================================================================== */
+
+
+/* ==========================================================================
+   1. CSS VARIABLES
+   Change these to instantly re-theme the whole site.
+   ========================================================================== */
+:root {
+  /* --- Colors --- */
+  --bg-primary:    #0a0f1c;      /* Dark navy — main background            */
+  --bg-secondary:  #111827;      /* Slightly lighter navy — cards, nav      */
+  --bg-card:       #1a2236;      /* Card backgrounds                        */
+  --border:        #243252;      /* Subtle border color                     */
+  --accent:        #38bdf8;      /* Sky blue — links, buttons, highlights   */
+  --accent-glow:   rgba(56, 189, 248, 0.25);  /* Glow behind accent items  */
+  --accent-hover:  #7dd3fc;      /* Lighter accent for hover states         */
+  --text-primary:  #e8edf5;      /* Main body text                          */
+  --text-secondary:#8892a8;      /* Muted/supporting text                   */
+  --text-heading:  #f1f5f9;      /* Headings                                */
+  --white:         #ffffff;
+
+  /* --- Typography --- */
+  --font-body:  'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono:  'JetBrains Mono', 'Fira Code', monospace;
+
+  /* --- Spacing (consistent rhythm) --- */
+  --section-padding: 5.5rem 0;
+  --container-max:   1060px;
+  --radius-sm:       6px;
+  --radius-md:       10px;
+  --radius-lg:       14px;
+
+  /* --- Transitions --- */
+  --ease: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+
+/* ==========================================================================
+   2. RESET & BASE STYLES
+   ========================================================================== */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;        /* Smooth anchor scrolling                */
+  scroll-padding-top: 80px;       /* Offset for fixed nav when jumping      */
+}
+
+body {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.7;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom text selection color */
+::selection {
+  background: var(--accent);
+  color: var(--bg-primary);
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.25s var(--ease);
+}
+a:hover {
+  color: var(--accent-hover);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+
+/* ==========================================================================
+   3. UTILITY CLASSES
+   ========================================================================== */
+.container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Section wrapper — gives consistent vertical rhythm */
+.section {
+  padding: var(--section-padding);
+}
+
+/* Horizontal rule between sections */
+.divider {
+  height: 1px;
+  background: var(--border);
+  border: none;
+  margin: 0;
+}
+
+/* Section label — the small text above each heading (e.g. "01 — About") */
+.section-label {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--accent);
+  letter-spacing: 0.08em;
+  margin-bottom: 0.6rem;
+}
+
+/* Section heading */
+.section-title {
+  font-size: clamp(1.6rem, 3vw, 2.2rem);  /* Responsive font size */
+  color: var(--text-heading);
+  font-weight: 700;
+  margin-bottom: 2.5rem;
+  line-height: 1.2;
+}
+
+
+/* ==========================================================================
+   4. NAVIGATION
+   Fixed top bar with blur backdrop
+   ========================================================================== */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: rgba(10, 15, 28, 0.85);       /* Semi-transparent navy       */
+  backdrop-filter: blur(12px);               /* Frosted glass effect        */
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  transition: background 0.3s var(--ease);
+}
+
+.nav-inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 68px;
+}
+
+/* Logo / Name in nav */
+.nav-logo {
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--text-heading);
+  letter-spacing: 0.01em;
+}
+.nav-logo .dot {
+  color: var(--accent);
+}
+
+/* Desktop nav links */
+.nav-links {
+  display: flex;
+  gap: 1.8rem;
+  list-style: none;
+}
+.nav-links a {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  position: relative;
+  padding: 4px 0;
+  transition: color 0.25s var(--ease);
+}
+/* Underline animation on hover */
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: width 0.25s var(--ease);
+  border-radius: 1px;
+}
+.nav-links a:hover {
+  color: var(--text-heading);
+}
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* Mobile hamburger button — hidden on desktop */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 5px;
+  padding: 4px;
+}
+.nav-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--accent);
+  border-radius: 2px;
+  transition: transform 0.3s var(--ease), opacity 0.3s var(--ease);
+}
+/* Animated hamburger → X when menu is open */
+.nav-toggle.active span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.nav-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+.nav-toggle.active span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+
+/* ==========================================================================
+   5. HERO SECTION
+   Full-viewport intro with name, tagline, and CTA buttons
+   ========================================================================== */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-top: 68px;                        /* Clear the fixed nav          */
+  overflow: hidden;
+}
+
+/* Canvas for the network-nodes animation (drawn by JS) */
+#heroCanvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.45;
+}
+
+/* Gradient overlay on top of the canvas */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 55% 50% at 65% 40%, rgba(56, 189, 248, 0.06), transparent 70%),
+    linear-gradient(180deg, transparent 0%, var(--bg-primary) 95%);
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+/* Small label above the name */
+.hero-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--accent);
+  letter-spacing: 0.06em;
+  margin-bottom: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.hero-eyebrow::before {
+  content: '';
+  width: 24px;
+  height: 2px;
+  background: var(--accent);
+}
+
+.hero h1 {
+  font-size: clamp(2.4rem, 5.5vw, 3.8rem);
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--text-heading);
+  max-width: 700px;
+}
+.hero h1 .highlight {
+  color: var(--accent);
+}
+
+.hero-tagline {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-top: 1rem;
+  letter-spacing: 0.02em;
+}
+
+.hero-intro {
+  margin-top: 1.4rem;
+  max-width: 520px;
+  color: var(--text-secondary);
+  font-size: 1.02rem;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2.4rem;
+  flex-wrap: wrap;
+}
+
+/* --- Buttons (reusable) --- */
+.btn {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  padding: 0.8rem 1.6rem;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  transition: all 0.25s var(--ease);
+  border: 1.5px solid transparent;
+}
+
+/* Filled accent button */
+.btn-primary {
+  background: var(--accent);
+  color: var(--bg-primary);
+}
+.btn-primary:hover {
+  background: var(--accent-hover);
+  color: var(--bg-primary);
+  box-shadow: 0 0 20px var(--accent-glow);
+  transform: translateY(-2px);
+}
+
+/* Outlined button */
+.btn-outline {
+  border-color: var(--border);
+  color: var(--text-primary);
+  background: transparent;
+}
+.btn-outline:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateY(-2px);
+}
+
+/* Scroll-down indicator */
+.scroll-indicator {
+  position: absolute;
+  bottom: 32px;
+  left: 24px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+  letter-spacing: 0.06em;
+}
+.scroll-indicator .bar {
+  width: 2px;
+  height: 32px;
+  background: var(--border);
+  position: relative;
+  overflow: hidden;
+}
+.scroll-indicator .bar::after {
+  content: '';
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--accent);
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+@keyframes scrollPulse {
+  0%   { top: -100%; }
+  60%  { top: 100%;  }
+  100% { top: 100%;  }
+}
+
+
+/* ==========================================================================
+   6. ABOUT SECTION
+   ========================================================================== */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.about-text p {
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+  font-size: 0.98rem;
+}
+.about-text strong {
+  color: var(--text-heading);
+  font-weight: 600;
+}
+
+/* Highlights sidebar (involvement, volunteering) */
+.about-highlights {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.highlight-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1.3rem;
+  background: var(--bg-card);
+  transition: border-color 0.3s var(--ease), transform 0.3s var(--ease);
+}
+.highlight-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+.highlight-card .icon {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+}
+.highlight-card h4 {
+  font-size: 0.95rem;
+  color: var(--text-heading);
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+}
+.highlight-card p {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+
+/* ==========================================================================
+   7. SKILLS SECTION
+   Three-column grid of skill groups with tag-style items
+   ========================================================================== */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.skill-group {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  background: var(--bg-card);
+}
+
+.skill-group-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--accent);
+  letter-spacing: 0.06em;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* Individual skill tag */
+.skill-tag {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  padding: 6px 14px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  color: var(--text-primary);
+  background: var(--bg-secondary);
+  transition: all 0.25s var(--ease);
+}
+.skill-tag:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: rgba(56, 189, 248, 0.08);
+}
+
+/* "Currently learning" gets a pulsing dot */
+.skill-tag.learning::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background: var(--accent);
+  border-radius: 50%;
+  margin-right: 6px;
+  animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.3; }
+}
+
+
+/* ==========================================================================
+   8. PROJECTS SECTION
+   Card grid with hover lift + glow
+   ========================================================================== */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.project-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1.8rem;
+  background: var(--bg-card);
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.3s var(--ease), transform 0.3s var(--ease),
+              box-shadow 0.3s var(--ease);
+}
+.project-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(56, 189, 248, 0.08);
+}
+
+/* "Placeholder" card style for upcoming projects */
+.project-card.placeholder {
+  border-style: dashed;
+  opacity: 0.7;
+}
+.project-card.placeholder:hover {
+  opacity: 1;
+}
+
+.project-number {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+}
+
+.project-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-heading);
+  margin-bottom: 0.7rem;
+  line-height: 1.3;
+}
+
+.project-desc {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-bottom: 1.2rem;
+  flex-grow: 1;                             /* Push tags + link to bottom   */
+}
+
+.project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 1.2rem;
+}
+.project-tech span {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  padding: 3px 10px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  color: var(--accent);
+}
+
+.project-link {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--accent);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: gap 0.25s var(--ease);
+}
+.project-link:hover {
+  gap: 10px;                                /* Arrow slides right on hover  */
+}
+.project-link .arrow {
+  transition: transform 0.25s var(--ease);
+}
+.project-link:hover .arrow {
+  transform: translateX(3px);
+}
+
+
+/* ==========================================================================
+   9. LEARNING JOURNEY SECTION
+   Simple timeline with dots
+   ========================================================================== */
+.journey-list {
+  position: relative;
+  padding-left: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+  max-width: 640px;
+}
+
+/* Vertical line */
+.journey-list::before {
+  content: '';
+  position: absolute;
+  left: 5px;
+  top: 8px;
+  bottom: 8px;
+  width: 2px;
+  background: linear-gradient(180deg, var(--accent), var(--border) 85%);
+}
+
+.journey-item {
+  position: relative;
+}
+
+/* Timeline dot */
+.journey-item::before {
+  content: '';
+  position: absolute;
+  left: -2rem;
+  top: 6px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--bg-primary);
+  border: 2px solid var(--accent);
+}
+
+.journey-item h4 {
+  font-size: 1rem;
+  color: var(--text-heading);
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+.journey-item p {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+.journey-item .tag {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  padding: 2px 8px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  color: var(--accent);
+  margin-top: 0.4rem;
+}
+
+
+/* ==========================================================================
+   10. CONTACT SECTION
+   ========================================================================== */
+.contact-box {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 3rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse 50% 80% at 50% 0%, rgba(56, 189, 248, 0.05), transparent 60%);
+}
+
+.contact-box h2 {
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  color: var(--text-heading);
+  margin-bottom: 0.8rem;
+}
+
+.contact-box .subtitle {
+  color: var(--text-secondary);
+  max-width: 460px;
+  margin: 0 auto 0.6rem;
+  font-size: 0.95rem;
+}
+
+.contact-box .open-to {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--accent);
+  margin-bottom: 2rem;
+}
+
+/* Contact form */
+.contact-form {
+  max-width: 480px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.4rem;
+  letter-spacing: 0.03em;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  transition: border-color 0.25s var(--ease);
+  outline: none;
+}
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: var(--accent);
+}
+.form-group textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.form-group input.error,
+.form-group textarea.error {
+  border-color: #f87171;
+}
+.error-msg {
+  font-size: 0.75rem;
+  color: #f87171;
+  margin-top: 0.3rem;
+  display: none;
+}
+.error-msg.visible {
+  display: block;
+}
+
+/* Links row under the form */
+.contact-links {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.contact-link-item {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  padding: 0.7rem 1.2rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  transition: all 0.25s var(--ease);
+}
+.contact-link-item:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateY(-2px);
+}
+
+
+/* ==========================================================================
+   11. FOOTER
+   ========================================================================== */
+.footer {
+  padding: 2rem 0;
+  text-align: center;
+  border-top: 1px solid var(--border);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+.footer .accent {
+  color: var(--accent);
+}
+
+
+/* ==========================================================================
+   12. ANIMATIONS
+   Scroll-triggered fade-in (class added by JS)
+   ========================================================================== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s var(--ease), transform 0.6s var(--ease);
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Reduced motion preference — respect the user's OS settings */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .fade-in {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+
+/* ==========================================================================
+   13. RESPONSIVE — TABLET (≤ 900px)
+   ========================================================================== */
+@media (max-width: 900px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+
+/* ==========================================================================
+   14. RESPONSIVE — MOBILE (≤ 680px)
+   ========================================================================== */
+@media (max-width: 680px) {
+  /* Show hamburger, hide desktop links */
+  .nav-toggle {
+    display: flex;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 68px;
+    left: 0;
+    right: 0;
+    background: var(--bg-secondary);
+    flex-direction: column;
+    padding: 1.2rem 24px 1.5rem;
+    gap: 0.8rem;
+    border-bottom: 1px solid var(--border);
+    /* Hidden by default — toggled by JS */
+    transform: translateY(-120%);
+    opacity: 0;
+    transition: transform 0.3s var(--ease), opacity 0.3s var(--ease);
+  }
+  .nav-links.open {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  .hero h1 {
+    font-size: clamp(2rem, 8vw, 2.8rem);
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-box {
+    padding: 2rem 1.2rem;
+  }
+}
