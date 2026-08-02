@@ -246,7 +246,74 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   /* ========================================================================
-     4. ACTIVE NAV LINK HIGHLIGHTING
+     6. AUTOMATION WORKFLOW LIGHTBOX
+     Clicking (or Enter/Space-ing) a workflow card opens a modal with the
+     full-size screenshot plus its title, description, and flow summary.
+     ======================================================================== */
+  const lightbox        = document.getElementById('automationLightbox');
+  const automationCards = document.querySelectorAll('.automation-card');
+
+  if (lightbox && automationCards.length) {
+    const lbImage = document.getElementById('lightboxImage');
+    const lbTool  = document.getElementById('lightboxTool');
+    const lbTitle = document.getElementById('lightboxTitle');
+    const lbDesc  = document.getElementById('lightboxDesc');
+    const lbFlow  = document.getElementById('lightboxFlow');
+    const lbClose = document.getElementById('lightboxClose');
+
+    let lastFocused = null;
+
+    function openLightbox(card) {
+      const { img, alt, tool, toolClass, title, desc, flow } = card.dataset;
+
+      lbImage.src = img;
+      lbImage.alt = alt || '';
+      lbTool.textContent = tool || '';
+      lbTool.className = `tool-badge ${toolClass || ''}`;
+      lbTitle.textContent = title || '';
+      lbDesc.textContent = desc || '';
+      lbFlow.textContent = flow || '';
+
+      lastFocused = document.activeElement;
+      lightbox.classList.add('open');
+      lightbox.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden'; // Prevent background scroll
+      lbClose.focus();
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove('open');
+      lightbox.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      if (lastFocused) lastFocused.focus();
+    }
+
+    automationCards.forEach(card => {
+      card.addEventListener('click', () => openLightbox(card));
+      // Keyboard accessibility — card has role="button" tabindex="0"
+      card.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          openLightbox(card);
+        }
+      });
+    });
+
+    // Close on backdrop click, close button, or Escape key
+    lightbox.querySelectorAll('[data-close]').forEach(el => {
+      el.addEventListener('click', closeLightbox);
+    });
+    lbClose.addEventListener('click', closeLightbox);
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && lightbox.classList.contains('open')) {
+        closeLightbox();
+      }
+    });
+  }
+
+
+  /* ========================================================================
+     7. ACTIVE NAV LINK HIGHLIGHTING
      As the user scrolls, the nav link corresponding to the current
      section gets highlighted. Uses IntersectionObserver on each section.
      ======================================================================== */
@@ -273,7 +340,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   /* ========================================================================
-     5. CONTACT FORM VALIDATION (front-end only)
+     8. CONTACT FORM VALIDATION (front-end only)
      Validates the name, email, and message fields when the form is
      submitted. Shows inline error messages. Does NOT send data anywhere
      — you'll need a backend (or a service like Formspree) for that later.

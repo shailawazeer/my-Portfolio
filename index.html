@@ -35,6 +35,7 @@
           <li><a href="#about">About</a></li>
           <li><a href="#skills">Skills</a></li>
           <li><a href="#projects">Projects</a></li>
+          <li><a href="#automation">Automation</a></li>
           <li><a href="#journey">Journey</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
@@ -105,10 +106,10 @@
               them, and figuring out why.
             </p>
             <p>
-              Beyond code, I'm exploring
-              <strong>AI automation tools</strong> like n8n and Zapier to
-              understand how workflows can be streamlined without writing
-              everything from the ground up. I'm also learning
+              Beyond code, I build
+              <strong>AI automation workflows</strong> with n8n, Zapier, and
+              Make — scheduled digests, cross-app notifications, and file
+              syncs that run without me touching them. I'm also learning
               <strong>UI/UX design in Figma</strong>
               because I believe developers who understand design build better
               products.
@@ -181,12 +182,13 @@
             </div>
           </div>
 
-          <!-- Currently Learning -->
+          <!-- Automation -->
           <div class="skill-group">
-            <p class="skill-group-label">Currently Learning</p>
+            <p class="skill-group-label">Automation</p>
             <div class="skill-tags">
-              <span class="skill-tag learning">n8n</span>
-              <span class="skill-tag learning">Zapier</span>
+              <span class="skill-tag">Zapier</span>
+              <span class="skill-tag">n8n</span>
+              <span class="skill-tag">Make</span>
               <span class="skill-tag learning">DSA</span>
             </div>
           </div>
@@ -267,30 +269,299 @@
             </a>
           </div>
 
-          <!-- Project 3: Placeholder -->
-          <div class="project-card placeholder fade-in">
+          <!-- Project 3: Automation Workflows -->
+          <div class="project-card fade-in">
             <p class="project-number">03</p>
-            <h3 class="project-title">Automation Project</h3>
+            <h3 class="project-title">Workflow Automation Suite</h3>
             <p class="project-desc">
-              Coming soon — currently building workflow automations with n8n and
-              Zapier. This card will be updated once the project is ready to
-              share.
+              Seven working automations across Zapier, n8n, and Make —
+              scheduled digests, notification pipelines, and cross-app file
+              syncs, each documented with a screenshot of the live workflow.
             </p>
             <div class="project-tech">
               <span>n8n</span>
               <span>Zapier</span>
+              <span>Make</span>
               <span>API Integration</span>
             </div>
-            <span
-              class="project-link"
-              style="color: var(--text-secondary); cursor: default"
-            >
-              In Progress ⏳
-            </span>
+            <a href="#automation" class="project-link">
+              See the workflows <span class="arrow">→</span>
+            </a>
           </div>
         </div>
       </div>
     </section>
+
+    <!-- ====================================================================
+       AUTOMATION WORKFLOWS SECTION
+       Proof gallery — real screenshots of working Zapier / n8n / Make
+       workflows, each with a short description of what it does.
+       ==================================================================== -->
+    <hr class="divider" />
+
+    <section id="automation" class="section">
+      <div class="container">
+        <p class="section-label">04 — Automation</p>
+        <h2 class="section-title fade-in">Workflows I've built and shipped</h2>
+        <p class="automation-intro fade-in">
+          Screenshots straight from my Zapier, n8n, and Make dashboards —
+          proof these actually run, not just diagrams. Each one automates a
+          real trigger-to-outcome chain: an event happens somewhere, and the
+          workflow handles the rest without me touching it.
+        </p>
+
+        <div class="automation-grid">
+          <!-- Workflow 1 -->
+          <div
+            class="automation-card fade-in"
+            role="button"
+            tabindex="0"
+            data-img="assets/automation/research-digest.jpg"
+            data-alt="Zapier workflow: Schedule trigger, Perplexity chat completion, Gmail send email"
+            data-tool="Zapier"
+            data-tool-class="zapier"
+            data-title="Scheduled AI Research Digest"
+            data-desc="Runs on a daily schedule, queries Perplexity for a chat completion, and emails the summary via Gmail — a hands-off daily digest."
+            data-flow="Schedule → Perplexity → Gmail"
+          >
+            <div class="automation-shot">
+              <img
+                src="assets/automation/research-digest.jpg"
+                alt="Zapier workflow: Schedule trigger, Perplexity chat completion, Gmail send email"
+                loading="lazy"
+              />
+              <span class="shot-zoom">🔍 View screenshot</span>
+            </div>
+            <div class="automation-body">
+              <span class="tool-badge zapier">Zapier</span>
+              <h3>Scheduled AI Research Digest</h3>
+              <p>
+                Runs on a daily schedule, queries Perplexity for a chat
+                completion, and emails the summary via Gmail — a hands-off
+                daily digest.
+              </p>
+              <p class="automation-flow">Schedule → Perplexity → Gmail</p>
+            </div>
+          </div>
+
+          <!-- Workflow 2 -->
+          <div
+            class="automation-card fade-in"
+            role="button"
+            tabindex="0"
+            data-img="assets/automation/github-notify.jpg"
+            data-alt="Zapier workflow: new GitHub issue triggers a Google Chat message"
+            data-tool="Zapier"
+            data-tool-class="zapier"
+            data-title="GitHub Issue → Google Chat Alert"
+            data-desc="Watches a GitHub repo for new issues and instantly posts a Google Chat message to the team channel — so nothing gets missed between tools."
+            data-flow="New GitHub Issue → Google Chat"
+          >
+            <div class="automation-shot">
+              <img
+                src="assets/automation/github-notify.jpg"
+                alt="Zapier workflow: new GitHub issue triggers a Google Chat message"
+                loading="lazy"
+              />
+              <span class="shot-zoom">🔍 View screenshot</span>
+            </div>
+            <div class="automation-body">
+              <span class="tool-badge zapier">Zapier</span>
+              <h3>GitHub Issue → Google Chat Alert</h3>
+              <p>
+                Watches a GitHub repo for new issues and instantly posts a
+                Google Chat message to the team channel — so nothing gets
+                missed between tools.
+              </p>
+              <p class="automation-flow">New GitHub Issue → Google Chat</p>
+            </div>
+          </div>
+
+          <!-- Workflow 3 -->
+          <div
+            class="automation-card fade-in"
+            role="button"
+            tabindex="0"
+            data-img="assets/automation/team-checkin.jpg"
+            data-alt="Zapier scheduled Google Chat weekly check-in message"
+            data-tool="Zapier"
+            data-tool-class="zapier"
+            data-title="Weekly Team Check-in Prompt"
+            data-desc="Posts a recurring &quot;what are you working on this week&quot; message to Google Chat, replacing a manual weekly reminder."
+            data-flow="Schedule → Google Chat"
+          >
+            <div class="automation-shot">
+              <img
+                src="assets/automation/team-checkin.jpg"
+                alt="Zapier scheduled Google Chat weekly check-in message"
+                loading="lazy"
+              />
+              <span class="shot-zoom">🔍 View screenshot</span>
+            </div>
+            <div class="automation-body">
+              <span class="tool-badge zapier">Zapier</span>
+              <h3>Weekly Team Check-in Prompt</h3>
+              <p>
+                Posts a recurring "what are you working on this week"
+                message to Google Chat, replacing a manual weekly reminder.
+              </p>
+              <p class="automation-flow">Schedule → Google Chat</p>
+            </div>
+          </div>
+
+          <!-- Workflow 4 -->
+          <div
+            class="automation-card fade-in"
+            role="button"
+            tabindex="0"
+            data-img="assets/automation/rss-discord.jpg"
+            data-alt="n8n workflow: RSS read, filter, code, conditional post to Discord"
+            data-tool="n8n"
+            data-tool-class="n8n"
+            data-title="RSS Content Digest → Discord"
+            data-desc="Reads an RSS feed, filters and reformats new items with a Code node, then posts a digest to a Discord channel on a schedule."
+            data-flow="RSS Read → Filter → Code → Discord"
+          >
+            <div class="automation-shot">
+              <img
+                src="assets/automation/rss-discord.jpg"
+                alt="n8n workflow: RSS read, filter, code, conditional post to Discord"
+                loading="lazy"
+              />
+              <span class="shot-zoom">🔍 View screenshot</span>
+            </div>
+            <div class="automation-body">
+              <span class="tool-badge n8n">n8n</span>
+              <h3>RSS Content Digest → Discord</h3>
+              <p>
+                Reads an RSS feed, filters and reformats new items with a
+                Code node, then posts a digest to a Discord channel on a
+                schedule.
+              </p>
+              <p class="automation-flow">RSS Read → Filter → Code → Discord</p>
+            </div>
+          </div>
+
+          <!-- Workflow 5 -->
+          <div
+            class="automation-card fade-in"
+            role="button"
+            tabindex="0"
+            data-img="assets/automation/weather-digest.jpg"
+            data-alt="n8n workflow: schedule trigger, HTTP request, code, send message"
+            data-tool="n8n"
+            data-tool-class="n8n"
+            data-title="Scheduled Weather Digest"
+            data-desc="Pulls current weather from a public API on a schedule, formats it with a Code node, and sends the digest by email."
+            data-flow="Schedule → HTTP Request → Code → Send"
+          >
+            <div class="automation-shot">
+              <img
+                src="assets/automation/weather-digest.jpg"
+                alt="n8n workflow: schedule trigger, HTTP request, code, send message"
+                loading="lazy"
+              />
+              <span class="shot-zoom">🔍 View screenshot</span>
+            </div>
+            <div class="automation-body">
+              <span class="tool-badge n8n">n8n</span>
+              <h3>Scheduled Weather Digest</h3>
+              <p>
+                Pulls current weather from a public API on a schedule,
+                formats it with a Code node, and sends the digest by email.
+              </p>
+              <p class="automation-flow">Schedule → HTTP Request → Code → Send</p>
+            </div>
+          </div>
+
+          <!-- Workflow 6 -->
+          <div
+            class="automation-card fade-in"
+            role="button"
+            tabindex="0"
+            data-img="assets/automation/drive-dropbox.jpg"
+            data-alt="n8n workflow: download file from Google Drive, conditional check, upload to Dropbox"
+            data-tool="n8n"
+            data-tool-class="n8n"
+            data-title="Google Drive → Dropbox File Sync"
+            data-desc="Downloads a file from Google Drive, runs a conditional check, and uploads it to Dropbox — a small but reliable cross-cloud handoff."
+            data-flow="Drive → If → Dropbox"
+          >
+            <div class="automation-shot">
+              <img
+                src="assets/automation/drive-dropbox.jpg"
+                alt="n8n workflow: download file from Google Drive, conditional check, upload to Dropbox"
+                loading="lazy"
+              />
+              <span class="shot-zoom">🔍 View screenshot</span>
+            </div>
+            <div class="automation-body">
+              <span class="tool-badge n8n">n8n</span>
+              <h3>Google Drive → Dropbox File Sync</h3>
+              <p>
+                Downloads a file from Google Drive, runs a conditional check,
+                and uploads it to Dropbox — a small but reliable cross-cloud
+                handoff.
+              </p>
+              <p class="automation-flow">Drive → If → Dropbox</p>
+            </div>
+          </div>
+
+          <!-- Workflow 7 -->
+          <div
+            class="automation-card fade-in"
+            role="button"
+            tabindex="0"
+            data-img="assets/automation/airtable-slack.jpg"
+            data-alt="Make workflow: Airtable record matches condition, Slack sends actionable message"
+            data-tool="Make"
+            data-tool-class="make"
+            data-title="Airtable Status → Slack Alert"
+            data-desc="Watches an Airtable base for records that match a status condition and sends an actionable Slack message — keeping a team tracker current without manual pings."
+            data-flow="Airtable condition → Slack message"
+          >
+            <div class="automation-shot">
+              <img
+                src="assets/automation/airtable-slack.jpg"
+                alt="Make workflow: Airtable record matches condition, Slack sends actionable message"
+                loading="lazy"
+              />
+              <span class="shot-zoom">🔍 View screenshot</span>
+            </div>
+            <div class="automation-body">
+              <span class="tool-badge make">Make</span>
+              <h3>Airtable Status → Slack Alert</h3>
+              <p>
+                Watches an Airtable base for records that match a status
+                condition and sends an actionable Slack message — keeping a
+                team tracker current without manual pings.
+              </p>
+              <p class="automation-flow">Airtable condition → Slack message</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+       AUTOMATION LIGHTBOX MODAL
+       Populated dynamically by script.js when a workflow card is clicked.
+       ==================================================================== -->
+    <div class="lightbox" id="automationLightbox" aria-hidden="true">
+      <div class="lightbox-backdrop" data-close></div>
+      <div class="lightbox-panel" role="dialog" aria-modal="true" aria-labelledby="lightboxTitle">
+        <button class="lightbox-close" id="lightboxClose" aria-label="Close">✕</button>
+        <div class="lightbox-image-wrap">
+          <img id="lightboxImage" src="" alt="" />
+        </div>
+        <div class="lightbox-details">
+          <span class="tool-badge" id="lightboxTool"></span>
+          <h3 id="lightboxTitle"></h3>
+          <p id="lightboxDesc"></p>
+          <p class="automation-flow" id="lightboxFlow"></p>
+        </div>
+      </div>
+    </div>
 
     <!-- ====================================================================
        LEARNING JOURNEY SECTION
@@ -300,7 +571,7 @@
 
     <section id="journey" class="section">
       <div class="container">
-        <p class="section-label">04 — Learning Journey</p>
+        <p class="section-label">05 — Learning Journey</p>
         <h2 class="section-title fade-in">Where I am right now</h2>
 
         <!-- <div class="journey-list fade-in">
